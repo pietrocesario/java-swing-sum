@@ -60,14 +60,22 @@ public class TelaSoma extends JFrame {
             try {
                 String a = txtN1.getText().trim();
                 String b = txtN2.getText().trim();
+                if (a.isEmpty()) {
+                    lblResult.setText("Preencha N1");
+                    return;
+                }
+                if (b.isEmpty()) {
+                    lblResult.setText("Preenha N2");
+                    return;
+                }
 
                 int n1 = Integer.parseInt(a);
                 int n2 = Integer.parseInt(b);
-
                 int soma = n1 + n2;
                 lblResult.setText(String.valueOf(soma));  // JLabel só aceita texto; converte o int para String e mostra no label
+
             } catch (NumberFormatException erro) { // Catch -> “se der um erro dentro do try, venha pra cá”
-                lblResult.setText("Erro");
+                lblResult.setText("Número Inválido");
             }
         });
     }
